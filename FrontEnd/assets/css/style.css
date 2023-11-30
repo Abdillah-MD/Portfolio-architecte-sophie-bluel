@@ -52,6 +52,7 @@ body {
 	margin:auto;
 	font-family: 'Work Sans' ;
 	font-size: 14px;
+	background: #FFFEF8;
 }
 header {
 	display: flex;
@@ -60,6 +61,18 @@ header {
 }
 section {
 	margin: 50px 0
+}
+
+:root {
+	--main-color : #1D6154;
+	--second-color: #0E2F28;
+	--textBtn-color: white;
+	--font-title: 'Syne'
+}
+
+/************** SECTION Header *************$*/
+header {
+	padding: 10px 40px;
 }
 
 h1{
@@ -101,6 +114,7 @@ li:hover {
 #introduction {
 	display: flex;
 	align-items: center;
+	padding: 0 40px;
 }
 #introduction figure {
 	flex: 1
@@ -121,10 +135,39 @@ li:hover {
 #introduction p {
 	margin-bottom: 0.5em;
 }
+/************* Section des Images projet ***********/
+#portfolio {
+	padding: 20px 40px;
+}
 #portfolio h2 {
 	text-align: center;
 	margin-bottom: 1em;
 }
+
+.filtreBtn {
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	margin: 15px auto;
+}
+
+.filtreBtn button {
+	padding: 10px 20px;
+	border-radius: 25px;
+	border: 2px solid var(--main-color);
+	margin: 20px 10px 20px 0;
+}
+
+.btn_selected {
+	background: var(--main-color);
+	color: var(--textBtn-color);
+}
+
+.btn_unselected {
+	background: transparent;
+	color: var(--main-color);
+}
+
 .gallery {
 	width: 100%;
 	display: grid;
@@ -135,8 +178,10 @@ li:hover {
 
 .gallery img {
 	width: 100%;
-
 }
+
+
+/************** Section Contact ************/
 #contact {
 	width: 50%;
 margin: auto;
