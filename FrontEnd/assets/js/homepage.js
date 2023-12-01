@@ -4,7 +4,7 @@ import {filtrerContenu} from "./btnFiltre.js"
 filtrerContenu()
 
 // Récupération des Objets du tableau grâce à l'API
-const afficherContenu = async () => {
+export const afficherContenu = async () => {
     const reponse = await fetch("http://localhost:5678/api/works/")
     let contenu = await reponse.json()
     console.log(contenu)

@@ -70,6 +70,10 @@ section {
 	--font-title: 'Syne'
 }
 
+a {
+	text-decoration: none;
+	color: black;
+}
 /************** SECTION Header *************$*/
 header {
 	padding: 10px 40px;
@@ -231,3 +235,48 @@ footer nav ul {
 	margin: 2em
 }
 
+/* Reponsive mobile */
+@media screen and (max-width: 768px) {
+	/* Section Header */
+	header {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+	}
+	h1, ul {
+		align-items: center;
+		justify-content: center;
+	}
+	h1 {
+		font-size: 28px;
+		white-space: nowrap;
+	}
+	h1 span {
+		font-size: 15px;
+	}
+	ul {
+		margin: 25px auto;
+	}
+	li img {
+		width: 25px;
+	}
+	/* Section introduction */
+	#introduction {
+		flex-direction: column;
+	}
+	#introduction article {
+		margin: 25px auto;
+		text-align: center;
+	}
+	/* Section portfolio */
+	.filtreBtn {
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+	}
+	.filtreBtn button {
+		margin: 10px 5px;
+		overflow: hidden;
+		white-space: nowrap;
+		text-overflow: ellipsis;
+	}
+}
