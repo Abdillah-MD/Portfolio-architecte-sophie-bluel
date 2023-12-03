@@ -115,6 +115,12 @@ nav li {
 li:hover {
 	color: #B1663C;
 }
+
+.logIn {
+	font-weight: bold;
+}
+
+/* Section introduction */
 #introduction {
 	display: flex;
 	align-items: center;
@@ -186,31 +192,36 @@ li:hover {
 
 
 /************** Section Contact ************/
-#contact {
+#contact, #login {
 	width: 50%;
-margin: auto;
+	margin: auto;
 }
-#contact > * {
+#contact > *, #login > * {
 	text-align: center;
 
 }
 #contact h2{
 	margin-bottom: 20px;
 }
-#contact form {
+
+#login h2 {
+	margin: 90px auto 20px auto;
+}
+
+#contact form, #login form {
 	text-align: left;
 	margin-top:30px;
 	display: flex;
 	flex-direction: column;
 }
 
-#contact input {
+#contact input, #login input {
 	height: 50px;
 	font-size: 1.2em;
 	border: none;
 	box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.09);
 }
-#contact label {
+#contact label, #login label {
 	margin: 2em 0 1em 0;
 }
 #contact textarea {
@@ -229,10 +240,21 @@ input[type="submit"]{
 	border-radius: 60px ;
 }
 
+form a {
+	text-decoration: underline;
+	text-align: center;
+}
+
+/* Section footer */
+footer {
+	background: white;
+	margin: 40px 0 0 0;
+}
 footer nav ul {
 	display: flex;
 	justify-content: flex-end;
-	margin: 2em
+	margin: 2em;
+	padding: 20px;
 }
 
 /* Reponsive mobile */
@@ -267,6 +289,9 @@ footer nav ul {
 	#introduction article {
 		margin: 25px auto;
 		text-align: center;
+	}
+	article p {
+		text-align: justify;
 	}
 	/* Section portfolio */
 	.filtreBtn {
