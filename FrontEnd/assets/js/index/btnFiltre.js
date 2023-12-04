@@ -117,14 +117,3 @@ const majContenu = (index) => {
         figure.appendChild(title)
     }
 }
-
-//// Fonction qui permet de mettre à jour le bouton actif
-const majBouton = (index) => {
-    index.forEach((bouton, j) => {
-        if (index === j) {
-            bouton.classList.add("btn_selected")
-        } else {
-            bouton.classList.remove("btn_selected")
-        }
-    })
-}
