@@ -1,8 +1,9 @@
-
+// import {connect} from "../modale/modale.js"
 
 const form = document.getElementById("formLogin")
 const mail = document.getElementById("email")
 const mdp = document.getElementById("motdepasse")
+let retourServeur
 
 form.addEventListener("submit", async (e) => {
     e.preventDefault()
@@ -20,7 +21,8 @@ form.addEventListener("submit", async (e) => {
         headers: {"Content-Type": "application/json" },
         body: dataChargeUtile
     })
-    const retourServeur = await reponse.json()
+    
+    retourServeur = await reponse.json()
     console.log(reponse.status)
     console.log(retourServeur)
 
@@ -39,11 +41,16 @@ form.addEventListener("submit", async (e) => {
     }
 
     // Traitement du retour 200 - cas où mot de passe est correct 
-    else if (reponse.status === 200) {
-        console.log("Vous êtes connecté")
-        sessionStorage.setItem('token', `${retourServeur.token}`)
-        sessionStorage.setItem('mailUtilisateur', `${data.email}`)
-        sessionStorage.setItem('mdpUtilisateur', `${data.password}`)
-        console.log(retourServeur.token)
-    }
+        if (reponse.status === 200) {
+            console.log("Vous êtes connecté")
+            sessionStorage.setItem('token', `${retourServeur.token}`)
+            sessionStorage.setItem('mailUtilisateur', `${data.email}`)
+            sessionStorage.setItem('mdpUtilisateur', `${data.password}`)
+            console.log(retourServeur.token)
+            // Redirectiion vers page d'accueil
+            window.location.replace("/FrontEnd/index.html")
+        
+            const logout = document.querySelector(".logIn")
+            logout.innerText = "logout"
+        }
 })

@@ -9,7 +9,6 @@ export const filtrerContenu = async() => {
     const requet = await fetch("http://localhost:5678/api/works/")
     let contenu = await requet.json()
 
-    console.log(categorie)
     // Récupération de la div parent pour injecter mes boutons 
     const filtreBtn = document.querySelector(".filtreBtn")
 
@@ -37,8 +36,6 @@ export const filtrerContenu = async() => {
             // Ajouter la classe "btn_selected" uniquement au bouton cliqué
             this.classList.remove("btn_unselected");
             this.classList.add("btn_selected");
-
-            console.log("Vous avez cliqué sur le bouton " + j)
         });
 
         // Si c'est le premier bouton, ajoutez la classe "btn_selected" et retire la classe "btn_unselected"
@@ -55,41 +52,34 @@ export const filtrerContenu = async() => {
     /////////////>>>>>>>>>>>>> SOLUTION POUR CLASS BTN UNSELECTED <<<<<<<<<<<////////
     // TOUS // 
     const btnTous = document.querySelector(".tous")
-    console.log(btnTous)
     btnTous.addEventListener("click", () => {
         document.querySelector(".gallery").innerHTML = ""
         afficherContenu()
     })
     // OBJET //
     const btnObjet = document.querySelector(".filtreBtn-1")
-    console.log(btnObjet)
     btnObjet.addEventListener("click", () => {
         const contenusFiltrees = contenu.filter( function(section) {
             return section.categoryId === 1
         })
-        console.log(contenusFiltrees)
         document.querySelector(".gallery").innerHTML = ""
         majContenu(contenusFiltrees)
     })
     // APPARTEMENT //
     const btnAppartement = document.querySelector(".filtreBtn-2")
-    console.log(btnAppartement)
     btnAppartement.addEventListener("click", () => {
         const contenusFiltrees = contenu.filter( function(section) {
             return section.categoryId === 2
         })
-        console.log(contenusFiltrees)
         document.querySelector(".gallery").innerHTML = ""
         majContenu(contenusFiltrees)
     })
     // HOTEL & RESTAURANT //
     const btnH_R = document.querySelector(".filtreBtn-3")
-    console.log(btnH_R)
     btnH_R.addEventListener("click", () => {
         const contenusFiltrees = contenu.filter( function(section) {
             return section.categoryId === 3
         })
-        console.log(contenusFiltrees)
         document.querySelector(".gallery").innerHTML = ""
         majContenu(contenusFiltrees)
     })

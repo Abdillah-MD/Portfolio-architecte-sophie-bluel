@@ -1,13 +1,14 @@
 import {filtrerContenu} from "./btnFiltre.js"
+import {connect} from "../modale/modale.js"
 
 // Lecture de la fonction filtre qui est exportée
 filtrerContenu()
+connect()
 
 // Récupération des Objets du tableau grâce à l'API
 export const afficherContenu = async () => {
     const reponse = await fetch("http://localhost:5678/api/works/")
     let contenu = await reponse.json()
-    console.log(contenu)
 
     // Récupération des éléments dans le DOM
     const section_ImgTitle = document.querySelector(".gallery")
