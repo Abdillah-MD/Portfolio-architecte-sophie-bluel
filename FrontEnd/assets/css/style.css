@@ -251,6 +251,21 @@ form a {
 	text-align: center;
 }
 
+.headshake {
+	animation: headshake 0.15s 3 both ;
+	background: red;
+	color: white;
+}
+
+@keyframes headshake {
+	from {
+		transform: translateX(-4px);
+	}
+	to {
+		transform: translateX(4px);
+	}
+}
+
 /* Section footer */
 footer {
 	background: white;

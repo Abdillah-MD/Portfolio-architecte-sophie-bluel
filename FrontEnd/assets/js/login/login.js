@@ -31,13 +31,21 @@ form.addEventListener("submit", async (e) => {
         const errorMessage = document.querySelector("#login h2")
         errorMessage.innerHTML = `<h2>Log in</h2>
                                     <p class="mdpIncorrect"> <i class="fa-solid fa-circle-xmark"></i> Mot de passe incorrect. Veuillez réessayer !</p>`
+        mdp.className = "headshake"
+        mdp.addEventListener("click", () => {
+            mdp.classList.remove("headshake")
+        })
     }
 
     // Traitement de l'erreur 404 - cas où aucun compte n'est trouvé
     else if (reponse.status === 404) {
         const errorMessage = document.querySelector("#login h2")
         errorMessage.innerHTML = `<h2>Log in</h2>
-                                    <p class="mdpIncorrect"> <i class="fa-solid fa-circle-xmark"></i> Email incorrect. Veuillez réessayer !</p>`
+                                    <p class="mdpIncorrect"> <i class="fa-solid fa-circle-xmark"></i> Aucun compte trouvé avec cet identifiant.<br> Veuillez réessayer !</p>`
+        mail.className = "headshake"
+        mail.addEventListener("click", () => {
+            mail.classList.remove("headshake")
+        })
     }
 
     // Traitement du retour 200 - cas où mot de passe est correct 
@@ -45,7 +53,6 @@ form.addEventListener("submit", async (e) => {
             console.log("Vous êtes connecté")
             sessionStorage.setItem('token', `${retourServeur.token}`)
             sessionStorage.setItem('mailUtilisateur', `${data.email}`)
-            sessionStorage.setItem('mdpUtilisateur', `${data.password}`)
             console.log(retourServeur.token)
             // Redirectiion vers page d'accueil
             window.location.replace("/FrontEnd/index.html")
