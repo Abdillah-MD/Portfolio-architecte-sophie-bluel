@@ -1,7 +1,6 @@
 let worksData = []
 
 import {createFilterBtn} from "./btnFiltre.js"
-import {connect} from "../modale/modale.js"
 
 // Récupération des Objets du tableau grâce à l'API
 const getWorks = async () => {
@@ -14,8 +13,10 @@ const getWorks = async () => {
 export const afficherContenu = ( idCat = 0 ) => {
 
     // Récupération des éléments dans le DOM
+    const modaleWorks = document.getElementById("works")
     const sectionGallery = document.querySelector(".gallery")
     sectionGallery.innerHTML = ""
+    modaleWorks.innerHTML = ""
 
     let worksDataFiltre = worksData
 
@@ -27,17 +28,35 @@ export const afficherContenu = ( idCat = 0 ) => {
     // Parcourir tout le tableau et injecter les éléments dynamiquement dans le DOM
     for (let i=0; i < worksDataFiltre.length; i++) {
         // Ajout de la section qui images & titre
-        let figure = document.createElement("figure")
-        sectionGallery.appendChild(figure)
-        // Ajouts des images
-        let image = document.createElement("img")
-        image.src = worksDataFiltre[i].imageUrl
-        image.alt = worksDataFiltre[i].title
-        figure.appendChild(image)
+        let figureGallery = document.createElement("figure")
+        sectionGallery.appendChild(figureGallery)
+
+        let figureModale = document.createElement("figure")
+        modaleWorks.appendChild(figureModale)
+
+        ///////////////// POUR Gallery ////////////////
+        let imageGallery = document.createElement("img")
+        imageGallery.src = worksDataFiltre[i].imageUrl
+        imageGallery.alt = worksDataFiltre[i].title
+        figureGallery.appendChild(imageGallery)
         // Ajouts du text 
         let title = document.createElement("figcaption")
         title.innerText = worksDataFiltre[i].title
-        figure.appendChild(title)
+        figureGallery.appendChild(title)
+        /////////////////////////////////////////////////
+
+        //////////////// POUR Modale ///////////////////
+        let imageModale = document.createElement("img")
+        imageModale.src = worksDataFiltre[i].imageUrl
+        imageModale.alt = worksDataFiltre[i].title
+        figureModale.appendChild(imageModale)
+
+        let suppBtn = document.createElement("i")
+        suppBtn.innerHTML = `<i class="fa-solid fa-trash-can"></i>`
+        suppBtn.className = "supprimerWorks"
+        figureModale.appendChild(suppBtn)
+        
+        ////////////////////////////////////////////////:
     }
 }
 
@@ -45,6 +64,3 @@ getWorks()
 
 // Lecture de la fonction qui permet de filtrée le contenu
 createFilterBtn()
-
-// Lecture de la fonction qui se trouve dans modale.js
-connect()

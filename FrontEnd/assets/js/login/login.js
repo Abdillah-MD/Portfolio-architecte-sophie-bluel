@@ -52,7 +52,6 @@ form.addEventListener("submit", async (e) => {
         if (reponse.status === 200) {
             console.log("Vous êtes connecté")
             sessionStorage.setItem('token', `${retourServeur.token}`)
-            sessionStorage.setItem('mailUtilisateur', `${data.email}`)
             console.log(retourServeur.token)
             // Redirectiion vers page d'accueil
             window.location.replace("/FrontEnd/index.html")

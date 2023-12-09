@@ -74,6 +74,154 @@ a {
 	text-decoration: none;
 	color: black;
 }
+/************** Section Modale  ****************/
+.admin {
+	background: #000;
+	color: white;
+	padding: 20px;
+	text-align: center;
+	margin: 0;
+	display: none;
+}
+.modaleBtnModifier {
+	position: absolute;
+	top: 0;
+	left: calc(50% + 150px);
+	transform: translate( -50%, -50% );
+	display: none;
+}
+.modale {
+	position: fixed;
+	align-items: center;
+	justify-content: center;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background: rgba(0, 0, 0, 0.8);
+	display: none;
+}
+.modale__wrapper-1, .modale__wrapper-2 {
+	position: relative;
+	width: 400px;
+	height: 500px;
+	max-width: calc(100vw - 20px);
+	max-height: calc(100vh - 200px);
+	padding: 20px 80px;
+	background-color: white;
+	border-radius: 10px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+}
+.modale__wrapper-1 {
+	display: none;
+}
+#titlemodale {
+	font-size: 28px;
+	margin: 30px 0;
+}
+#works {
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+	height: 380px;
+	border-bottom: 2px solid #B3B3B3;
+	margin: 20px auto;
+	padding-bottom: 20px;
+}
+#works figure {
+	position: relative;
+	margin: 10px;
+}
+#works img {
+	width: 100%;
+}
+
+.supprimerWorks {
+	position: absolute;
+	color: white;
+	background: #000;
+	border-radius: 5px;
+	padding: 10px;
+	top: 10%;
+	right: 10%;
+}
+#ajoutPhotoBtn {
+	font-size: 18px;
+	padding: 10px 20px;
+	border-radius: 25px;
+	border: 2px solid var(--main-color);
+	margin: 0 10px 20px 0;
+}
+.ajoutWorks-form, .ajoutPhoto {
+	display: flex;
+	align-items: center;
+	flex-direction: column;
+}
+.ajoutWorks-form {
+	width: 100%;
+	justify-content: center;
+}
+.ajoutPhoto {
+	position: relative;
+	background: #E8F1F6;
+	width: 100%;
+	height: 180px;
+	justify-content: space-around;
+	margin: 15px auto;
+	border-radius: 4px;
+}
+
+.ajoutPhoto p {
+	position: absolute;
+	left: 50%;
+	bottom: 8px;
+	transform: translate( -50%, -50%);
+	font-size: 10px;
+}
+.ajoutWorks-form--title, input[type="text"], .ajoutWorks-form--categorie, select {
+	width: 100%;
+	margin: 10px auto 0 auto;
+}
+input[type="text"], select {
+	height: 35px;
+	background: #FFF;
+	box-shadow: 0px 4px 14px 0px rgba(0, 0, 0, 0.09);
+	border: none;
+	outline: none;
+}
+input[type="text"] {
+	padding: 0 15px;
+	max-width: calc( 100% - 30px);
+}
+input[type="submit"] {
+	padding: 10px 20px;
+	border: none;
+}
+
+select {
+	padding: 0 45px;
+}
+input[type="file"] {
+	display: none;
+}
+label[for=ajoutPhotoFile] {
+	background: #CBD6DC;
+	font-size: 18px;
+	padding: 10px 20px;
+	border-radius: 25px;
+	margin: 0 10px 20px 0;
+	color: #306685;
+	cursor: pointer;
+}
+.fa-xmark {
+	position: absolute;
+	font-size: 30px;
+	top: 40px;
+	right: 40px;
+	cursor: pointer;
+}
 /************** SECTION Header *************$*/
 header {
 	padding: 10px 40px;
@@ -148,10 +296,15 @@ li:hover {
 /************* Section des Images projet ***********/
 #portfolio {
 	padding: 20px 40px;
+	position: relative;
 }
 #portfolio h2 {
 	text-align: center;
 	margin-bottom: 1em;
+	position: absolute;
+	top: 0;
+	left: 50%;
+	transform: translate(-50%, -50%);
 }
 
 .filtreBtn {
@@ -168,7 +321,7 @@ li:hover {
 	margin: 20px 10px 20px 0;
 }
 
-.btn_selected {
+.btn_selected, #ajoutPhotoBtn {
 	background: var(--main-color);
 	color: var(--textBtn-color);
 }

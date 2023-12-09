@@ -1,3 +1,4 @@
+import { isLogin } from "./admin.js"
 import {afficherContenu} from "./homepage.js"
 
 // Récupération du nombre de bouton puis Injection dans le DOM
@@ -12,28 +13,35 @@ export const createFilterBtn = async() => {
     // Récupération de la div parent pour injecter mes boutons 
     const filtreBtn = document.querySelector(".filtreBtn")
 
-    // Création de la boucle pour injecter les bouton de façon dynamique 
-    for (let i = 0; i < categorie.length; i++) {
-        // Création du bouton
-        const bouton = document.createElement("button")
-        bouton.innerText = `${categorie[i].name}`
+    
+    if ( isLogin === false ) {
+        // Création de la boucle pour injecter les bouton de façon dynamique 
+        for (let i = 0; i < categorie.length; i++) {
+            // Création du bouton
+            const bouton = document.createElement("button")
+            bouton.innerText = `${categorie[i].name}`
 
-        // Permet de mettre le btn slected dès le chargement de la page
-        if (i === 0) {
-            bouton.className = "btn_selected"
+            // Permet de mettre le btn slected dès le chargement de la page
+            if (i === 0) {
+                bouton.className = "btn_selected"
+            }
+            else {
+                bouton.className = "btn_unselected"
+            }
+
+            // Ecoute du click pour pouvoir afficher les élément par Catégorie
+            bouton.addEventListener("click", () => {
+                afficherContenu(categorie[i].id)
+                console.log(bouton)
+            })
+            
+            filtreBtn.appendChild(bouton)
+
         }
-        else {
-            bouton.className = "btn_unselected"
-        }
-
-        // Ecoute du click pour pouvoir afficher les élément par Catégorie
-        bouton.addEventListener("click", () => {
-            afficherContenu(categorie[i].id)
-            console.log(bouton)
-        })
-        
-        filtreBtn.appendChild(bouton)
-
+    } 
+    else {
+        filtreBtn.innerHTML = ""
+        document.querySelector("#portfolio").style.margin = "70px auto 70px auto"
     }
 
     btnFiltreStyle()
