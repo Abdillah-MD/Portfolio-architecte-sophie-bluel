@@ -1,0 +1,60 @@
+/************** SECTION Header *************$*/
+.header {
+	padding: 10px 40px;
+    @media screen and (max-width : 768px) {
+        display: flex;
+		flex-direction: column;
+		justify-content: center;
+        text-align: center;
+    }
+    &__title {
+        display: flex;
+        flex-direction: column;
+        font-family: 'Syne';
+        font-size: 22px;
+        font-weight: 800;
+        color: #B1663C;
+        @media screen and (max-width: 768px) {
+            font-size: 24px;
+		    white-space: nowrap;
+            text-align: center;
+        }
+        span {
+            font-family: 'Work Sans';
+            font-size:10px;
+            letter-spacing: 0.1em;
+            @media screen and (max-width: 768px) {
+                font-size: 15px;
+            }
+        }
+    }
+    &__nav--ul {
+        display: flex;
+        align-items: center;
+        list-style-type: none;
+        @media screen and (max-width: 768px) {
+            align-items: center;
+		    justify-content: center;
+            margin: 25px auto;
+        }
+        & li {
+            padding: 0 10px;
+	        font-size: 1.2em;
+            @media screen and (max-width: 768px) {
+                img {
+                    width: 25px;
+                }
+            }
+        }
+        & li:hover {
+            color: #B1663C;
+        }
+    }
+}
+
+
+
+// .logIn {
+// 	font-weight: bold;
+// }
+

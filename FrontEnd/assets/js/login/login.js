@@ -54,9 +54,9 @@ form.addEventListener("submit", async (e) => {
             sessionStorage.setItem('token', `${retourServeur.token}`)
             console.log(retourServeur.token)
             // Redirectiion vers page d'accueil
-            window.location.replace("/FrontEnd/index.html")
+            window.location.replace("/index.html")
         
-            const logout = document.querySelector(".logIn")
+            const logout = document.querySelector(".connexion")
             logout.innerText = "logout"
         }
 })
