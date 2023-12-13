@@ -60,3 +60,5 @@ form.addEventListener("submit", async (e) => {
             logout.innerText = "logout"
         }
 })
+
+console.log("sophie.bluel@test.tld")

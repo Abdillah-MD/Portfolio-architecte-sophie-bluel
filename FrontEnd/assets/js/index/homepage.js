@@ -1,5 +1,6 @@
 let worksData = []
 
+import { deleteWork } from "../modale/deleteWorks.js"
 import {createFilterBtn} from "./btnFiltre.js"
 
 // Récupération des Objets du tableau grâce à l'API
@@ -58,6 +59,12 @@ export const afficherContenu = ( idCat = 0 ) => {
         
         ////////////////////////////////////////////////:
     }
+
+    const suppBtn = document.querySelectorAll(".supprimerWorks")
+
+    // Appelle de la fonction supprimer élément
+    deleteWork(suppBtn, worksDataFiltre)
+    
 }
 
 getWorks()
