@@ -1,10 +1,8 @@
-import { cleToken } from "./deleteWorks"
-
 // Appelle API pour avoir l'autorisation de poster un nouveau work
 const addWork = async (newWork) => {
     const request = await fetch ("http://localhost:5678/api/works/", {
         method: "POST",
-        headers: {"Authorization": `Bearer ${cleToken}`},
+        headers: {"Authorization": `Bearer ${sessionStorage.getItem("token")}`},
         body: JSON.stringify(newWork)
     })
 }

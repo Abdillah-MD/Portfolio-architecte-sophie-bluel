@@ -55,15 +55,32 @@ export const afficherContenu = ( idCat = 0 ) => {
         let suppBtn = document.createElement("i")
         suppBtn.innerHTML = `<i class="fa-solid fa-trash-can"></i>`
         suppBtn.className = "supprimerWorks"
+
+        suppBtn.addEventListener("click", () => {
+            console.log(i)
+            console.log(worksDataFiltre[i].id)
+            
+            // Boîte de confirmation 
+            if ( confirm(`Êtes vous sûr de vouloir supprimer " ${worksDataFiltre[i].title} " ? `) === true) {
+                // Si ok alors travaille supprimer
+                deleteWork(worksDataFiltre[i].id)
+                getWorks()
+            }
+
+            else {
+                // ne rien faire
+            }
+        })
+
         figureModale.appendChild(suppBtn)
         
         ////////////////////////////////////////////////:
     }
 
-    const suppBtn = document.querySelectorAll(".supprimerWorks")
+    // const suppBtn = document.querySelectorAll(".supprimerWorks")
 
     // Appelle de la fonction supprimer élément
-    deleteWork(suppBtn, worksDataFiltre)
+    // deleteWork(suppBtn, worksDataFiltre)
     
 }
 

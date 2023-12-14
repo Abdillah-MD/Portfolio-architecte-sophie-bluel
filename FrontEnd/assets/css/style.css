@@ -1,6 +1,9 @@
 /************** SECTION Header *************$*/
 .header {
   padding: 10px 40px;
+  display: flex;
+  justify-content: space-between;
+  margin: 20px 0 50px;
 }
 @media screen and (max-width: 768px) {
   .header {
@@ -136,12 +139,6 @@ body {
   background: #FFFEF8;
 }
 
-header {
-  display: flex;
-  justify-content: space-between;
-  margin: 50px 0;
-}
-
 section {
   margin: 50px 0;
 }
@@ -156,6 +153,10 @@ section {
 a {
   text-decoration: none;
   color: black;
+}
+
+a:hover {
+  color: #B1663C;
 }
 
 h2 {
@@ -272,7 +273,6 @@ h2 {
   font-size: 1.2em;
   border: none;
   box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.09);
-  padding-left: 20px;
 }
 .contact__form input[id=name] {
   height: 50px;
