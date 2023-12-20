@@ -10,6 +10,7 @@
 	<script src="https://kit.fontawesome.com/c259819ba8.js" crossorigin="anonymous"></script>
 	<script type="module" src="./assets/js/index/homepage.js" defer></script>
 	<script type="module" src="./assets/js/index/admin.js" defer></script>
+	<script src="./assets/js/modale/addWorks.js" defer></script>
 	<meta name="description" content="">
 	<link rel="stylesheet" href="./assets/css/style.css">
 </head>
@@ -75,27 +76,28 @@
 		</div>
 		<div class="modale__wrapper-2">
 			<h3 id="titlemodale">Ajout photo</h3>
-			<form method="post" class="ajoutWorks-form">
+			<form method="post" class="ajoutWorks-form" enctype="multipart/form-data">
 				<div class="ajoutPhoto">
 					<img src="./assets/icons/picture-svgrepo-com1.svg" alt="Image Svg">
 					<label for="ajoutPhotoFile"> + Ajouter photo</label>
 					<p>jpg, png : 4mo max</p>
-					<input type="file" name="ajoutPhotoFile" id="ajoutPhotoFile" placeholder="+ Ajouter photo" accept="image/*" size="4194304">
+					<input type="file" name="image" id="ajoutPhotoFile" accept="image/*" size="4194204">
 				</div>
-				<div class="ajoutWorks-form--title">
+				<fieldset class="ajoutWorks-form--title">
 					<legend>Titre</legend>
-					<input type="text" name="titre" id="titre">
-				</div>
-				<div class="ajoutWorks-form--categorie">
+					<input type="text" name="title" id="titre">
+				</fieldset>
+				<fieldset class="ajoutWorks-form--categorie">
 					<legend>Catégorie</legend>
 					<select name="category" id="worksCategory">
-						<option value=""></option>
-						<option value="Objets">Objets</option>
-						<option value="Appartements">Appartements</option>
-						<option value="Hotels & restaurants">Hotels & restaurants</option>
+						<option value="0"></option>
+						<option value="1">Objets</option>
+						<option value="2">Appartements</option>
+						<option value="3">Hotels & restaurants</option>
+						
 					</select>
-				</div>
-				<input type="submit" value="valider">
+				</fieldset>
+				<input class="modalSubmitBtn" type="submit" value="valider">
 			</form>
 			<i class="fa-solid fa-xmark"></i>
 			<i class="fa-solid fa-arrow-left"></i>

@@ -276,7 +276,6 @@ h2 {
 }
 .contact__form input[id=name] {
   height: 50px;
-  max-width: calc(100% - 25px);
 }
 .contact__form label {
   margin: 2em 0 1em 0;
@@ -414,8 +413,8 @@ h2 {
   border-radius: 5px;
   font-size: 10px;
   padding: 6px;
-  top: 10%;
-  right: 10%;
+  top: 5px;
+  right: 5px;
   cursor: pointer;
 }
 .modale__wrapper-1 #ajoutPhotoBtn {
@@ -518,6 +517,9 @@ h2 {
   outline: none;
   padding: 0 15px;
   border-right: 15px solid transparent;
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
 }
 .modale__wrapper-2 input[type=submit] {
   padding: 10px 20px;

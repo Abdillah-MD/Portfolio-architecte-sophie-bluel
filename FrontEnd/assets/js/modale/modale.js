@@ -3,6 +3,10 @@ import {isLogin} from "../index/admin.js"
 const boutonModifier = document.querySelector(".modaleBtnModifier") 
 const wrapper1 = document.querySelector(".modale__wrapper-1")
 const wrapper2 = document.querySelector(".modale__wrapper-2")
+let fileSelected = null
+const previewImage = document.querySelector(".ajoutPhoto img")
+const formLabel = document.querySelector("label[for=ajoutPhotoFile]")
+const formatFileText = document.querySelector(".ajoutPhoto p")
 
 // Condition qui permet d'ouvrir le modale - admin 
 export const afficherElementAdmin = () => {
@@ -97,15 +101,18 @@ const closeModal = (fenetre) => {
 const importNewPhoto = () => {
   const sectionFileImported = document.querySelector(".ajoutPhoto")
   const fileInput = document.querySelector("input[type=file]")
-  const previewImage = document.querySelector(".ajoutPhoto img")
-
+  
+  // Ecouter si l'utilisateur fourni un fichier sur l'input file
   fileInput.addEventListener("change", (e) => {
-    const fileSelected = e.target.files[0]
+    fileSelected = e.target.files[0]
 
     // Montres l'apperçu de la photo
     if (fileSelected) {
-      sectionFileImported.innerHTML = ""
 
+      formLabel.style.display = "none"
+      formatFileText.style.display = "none"
+
+      // Création de l'apperçu image puis le montrer
       let imageURL = URL.createObjectURL(fileSelected)
       previewImage.src = imageURL
       previewImage.style.display = "block"
@@ -113,8 +120,8 @@ const importNewPhoto = () => {
       previewImage.style.objectfit = "cover"
       sectionFileImported.appendChild(previewImage)
 
-    }
-
+      console.log(fileSelected)
+    } 
   })
 
 }
@@ -125,7 +132,6 @@ const navigationModal = () => {
   const formulaireModale = document.querySelector(".ajoutWorks-form")
   const boutonAjoutPhoto = document.querySelector("#ajoutPhotoBtn")
   const previousBtn = document.querySelector(".fa-arrow-left")
-  
 
   // Lecture de l'animation au clique du bouton ajout photo
   boutonAjoutPhoto.addEventListener("click", () => {
@@ -148,6 +154,16 @@ const navigationModal = () => {
     // resetAnimation()
     wrapper1.classList.add("animation__wrapper-1")
     wrapper2.classList.add("animation__wrapper-2")
+
+    // Au click sur bouton previous données fomulaire réinitialisées 
+    fileSelected = null
+    console.log(fileSelected)
+    const parent = document.querySelector(".ajoutPhoto")
+    previewImage.src = "./assets/icons/picture-svgrepo-com1.svg"
+    previewImage.style.cssText = "width: auto; height: auto; display: inline"
+    parent.insertBefore(previewImage, parent.firstChild)
+    formLabel.style.display = "block"
+    formatFileText.style.display = "block"
     formulaireModale.reset()
   })
   

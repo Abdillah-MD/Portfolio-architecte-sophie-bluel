@@ -56,8 +56,8 @@
 					border-radius: 5px;
 					font-size: 10px;
 					padding: 6px;
-					top: 10%;
-					right: 10%;
+					top: 5px;
+					right: 5px;
 					cursor: pointer;
 				}
 			}
@@ -125,7 +125,7 @@
 			&--title {
 				width: 100%;
 				margin: 10px auto 0 auto;
-				input[id="titre"] {
+				input[id="title"] {
 					@include inputApparence;
 					padding: 0 15px;
 					max-width: calc( 100% - 30px);
@@ -138,6 +138,7 @@
 					@include inputApparence;
 					padding: 0 15px;
 					border-right: 15px solid transparent;
+					appearance: none;
 				}
 			}
 		}

@@ -1,6 +1,6 @@
 let worksData = []
 
-import { deleteWork } from "../modale/deleteWorks.js"
+import { deleteWork } from "../api.js"
 import {createFilterBtn} from "./btnFiltre.js"
 
 // Récupération des Objets du tableau grâce à l'API
