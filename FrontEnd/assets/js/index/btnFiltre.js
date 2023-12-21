@@ -42,6 +42,18 @@ export const createFilterBtn = async() => {
     else {
         filtreBtn.innerHTML = ""
         document.querySelector("#portfolio").style.margin = "70px auto 70px auto"
+
+        // Permet d'injecter dynamiquement les catégories dans le formalaire de la modale
+        for (let i = 0; i < categorie.length; i++) {
+            if ( i >= 1 ) {
+                const categoryFormModale = document.getElementById("worksCategory")
+                const optionSelectModale = document.createElement("option")
+                optionSelectModale.innerText = categorie[i].name
+                optionSelectModale.value = categorie[i].id
+
+                categoryFormModale.appendChild(optionSelectModale)
+            }
+        }
     }
 
     btnFiltreStyle()

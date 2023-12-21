@@ -4,7 +4,7 @@ import { deleteWork } from "../api.js"
 import {createFilterBtn} from "./btnFiltre.js"
 
 // Récupération des Objets du tableau grâce à l'API
-const getWorks = async () => {
+export const getWorks = async () => {
     const requet = await fetch("http://localhost:5678/api/works/")
     worksData = await requet.json()
     afficherContenu()

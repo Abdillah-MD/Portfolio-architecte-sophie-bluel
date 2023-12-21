@@ -3,7 +3,7 @@
 	display: flex;
 	align-items: center;
 	padding: 0 40px;
-	@media screen and (max-width: 768px) {
+	@media (max-width: 768px) {
 		flex-direction: column;
 	}
 	&__figure {
@@ -16,7 +16,7 @@
 	}
 	&__article {
 		flex: 1;
-		@media screen and (max-width: 768px) {
+		@media (max-width: 768px) {
 			margin: 25px auto;
 			text-align: center;
 		}
@@ -25,7 +25,7 @@
 		}
 		p {
 			margin-bottom: 0.5em;
-			@media screen and (max-width: 768px) {
+			@media (max-width: 768px) {
 				text-align: justify;
 			}
 		}
@@ -36,6 +36,9 @@
 .portfolio {
 	padding: 20px 40px;
 	position: relative;
+	@media (max-width: 768px) {
+		padding: 35px 20px 15px 20px;
+	}
 	h2 {
 		text-align: center;
 		margin-bottom: 1em;
@@ -43,17 +46,33 @@
 		top: 0;
 		left: 50%;
 		transform: translate(-50%, -50%);
+		@media (max-width: 768px) {
+			white-space: nowrap;
+			font-size: 24px;
+		}
 	}
 	&__filtreBtn {
 		display: flex;
 		flex-direction: row;
 		justify-content: center;
 		margin: 15px auto;
+		@media (max-width: 768px) {
+			flex-wrap: wrap;
+			margin: 15px auto 40px auto;
+			gap: 10px;
+		}
 		button {
 			padding: 10px 20px;
 			border-radius: 25px;
 			border: 2px solid var(--main-color);
 			margin: 20px 10px 20px 0;
+			@media (max-width: 768px) {
+				width: 45%;
+				overflow: hidden;
+				white-space: nowrap;
+				text-overflow: ellipsis;
+				margin: 0;
+			}
 		}
 		.btn_selected {
 			background: var(--main-color);
@@ -70,6 +89,27 @@
 		grid-template-columns: 1fr 1fr 1fr;
 		grid-column-gap: 20px;
 		grid-row-gap: 20px;
+		@media (max-width: 768px) {
+			grid-column-gap: 10px;
+			grid-row-gap: 8px;
+			box-sizing: border-box;
+		}
+		figure {
+			@media (max-width: 768px) {
+				box-sizing: border-box;
+			}
+			img {
+				@media (max-width: 768px) {
+					height: 80%;
+				}
+			}
+			figcaption {
+				@media (max-width: 768px) {
+					font-size: 10px;
+					height: 15%;
+				}
+			}
+		}
 		img {
 			width: 100%;
 		}
@@ -80,6 +120,9 @@
 .contact {
 	width: 50%;
 	margin: auto;
+	@media (max-width: 768px) {
+		width: 80%;
+	}
 	&__title {
 		margin-bottom: 20px;
 	}

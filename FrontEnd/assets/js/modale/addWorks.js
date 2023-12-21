@@ -5,55 +5,10 @@ const categoryNewWork = document.getElementById("worksCategory")
 const btnSubmit = document.querySelector(".modalSubmitBtn")
 const inputFile = document.querySelector("input[type=file]")
 
-// Appelle API pour pouvoir envoyer les élements 
-const addWork = async (formData) => {
-    try {
-        const request = await fetch("http://localhost:5678/api/works", {
-            method: "POST",
-            headers: { 
-                "Authorization": `Bearer ${sessionStorage.getItem("token")}`,
-             },
-            body: formData
-        })
-
-        const reponse = await request.json()
-        console.log("Réussite :", reponse)
-
-        if (!Response.ok) {
-            console.log("Erreur lors de l'envoie du fichier " + reponse.status + " " + reponse.statusText)
-            console.log(request)
-        }
-
-    } catch (error) {
-        console.log("Une erreur s'est produite" + error)
-    }
-    
-}
-
-
-// function handleFileSelect() {
-//     const file = inputFile.files[0]
-
-//     if (file) {
-//         transformeFichierEnBase64(file)
-//     }
-// }
-
-// function transformeFichierEnBase64(file) {
-//     const reader = new FileReader()
-
-//     reader.onload = function (event) {
-//         const base64Data = event.target.result
-//         // console.log(base64Data) // La représentation base64 de l'image
-
-//         sessionStorage.setItem("imageBase64", `${base64Data}`)
-//     }
-
-//     reader.readAsDataURL(file)
-// }
+import { apiAddWork } from "../api.js"
+import { getWorks } from "../index/homepage.js"
 
 // Permet de desactiver le bouton si champ vide 
-
 const btnDisable = () => {
     if (
         inputFile.files.length !== 1 ||
@@ -62,9 +17,7 @@ const btnDisable = () => {
     ) {
         btnSubmit.style.background = "#A7A7A7"
         btnSubmit.style.cursor = "not-allowed"
-        btnSubmit.disabled = true
     } else {
-        btnSubmit.disabled = false
         btnSubmit.style.background = "#1D6154"
         btnSubmit.style.cursor = "pointer"
     }
@@ -74,7 +27,6 @@ const btnDisable = () => {
 const majBtnDisable = () => {
     inputFile.addEventListener("change", () => {
         btnDisable()
-        // handleFileSelect()
     })
 
     tilteWork.addEventListener("input", () => {
@@ -90,34 +42,43 @@ const majBtnDisable = () => {
     form.addEventListener("input", () => {
         btnDisable();
     })
+    
+}
+
+// Ecouter le click sur le bouton disable
+const clickBtnDisable = () => {
+    btnSubmit.addEventListener("click", () => {
+        if (btnSubmit.disabled === true) {
+            const reussiText = document.querySelector(".modale__wrapper-2 h3")
+            reussiText.innerHTML = `<h3 class="titlemodale">Ajout photo</h3><p class="textFailedToAdd"> Veuillez renseignr tous les champs<p>`
+        }
+    })
 }
 
 // Ecouter le submit du formulaire  |||| sessionStorage.getItem("imageBase64")
-form.addEventListener("submit", async (e) => {
-    e.preventDefault()
-    const formData = new FormData(form)
+const onSubmitFormModale = () => {
+    form.addEventListener("submit", async (e) => {
+        e.preventDefault()
+        const formData = new FormData()
+    
+        formData.append("image", inputFile.files[0])
+        formData.append("title", tilteWork.value)
+        formData.append("category", parseInt(categoryNewWork.value))
+    
+        console.log(formData.get("image"))
+        console.log(typeof parseInt(categoryNewWork.value))
+    
+        await apiAddWork(formData)
+        btnDisable()
+        getWorks()
+    
+    })
+}
 
-    formData.append("image", inputFile.files[0])
-    formData.append("title", tilteWork.value)
-    formData.append("category", parseInt(categoryNewWork.value))
 
-    console.log(formData.get("image"))
-    console.log(typeof parseInt(categoryNewWork.value))
-
-    console.log(formData.length)
-
-    // Convertir les données FormData en un objet JavaScript
-    const formDataObject = {}
-    for (const [key, value] of formData.entries()) {
-    formDataObject[key] = value
-    }
-
-    // Afficher l'objet dans la console
-    console.log(formDataObject)
-
-    await addWork(formData)
-
-})
-
-btnDisable()
-majBtnDisable()
+// Fonction exporter dans le fichier admin pour pouvoir lire toutes les f° dans le index.html 
+export const addNewWork = () => {
+    onSubmitFormModale()
+    btnDisable()
+    majBtnDisable()
+}

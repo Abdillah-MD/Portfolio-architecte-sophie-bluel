@@ -66,6 +66,8 @@ section {
 	--font-title: 'Syne'
 }
 
+$main-color: #1D6154;
+
 a {
 	text-decoration: none;
 	color: black;
@@ -89,7 +91,7 @@ h2{
 @mixin divModale {
 	position: relative;
 	width: 400px;
-	height: 500px;
+	height: 550px;
 	max-width: calc(100vw - 20px);
 	max-height: calc(100vh - 100px);
 	padding: 20px 80px;
