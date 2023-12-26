@@ -8,23 +8,21 @@
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Work+Sans&display=swap" rel="stylesheet">
 	<script src="https://kit.fontawesome.com/c259819ba8.js" crossorigin="anonymous"></script>
-	<script type="module" src="./assets/js/index/homepage.js" defer></script>
-	<script type="module" src="./assets/js/index/admin.js" defer></script>
 	<meta name="description" content="">
 	<link rel="stylesheet" href="./assets/css/style.css">
 </head>
 <body>
-	<section class="admin">
+	<aside class="admin">
 		<p class="admin__edition"><i class="fa-regular fa-pen-to-square"></i> Mode édition</p>
-	</section>
+	</aside>
 	<header class="header">
-		<h1 class="header__title">Sophie Bluel <span>Architecte d'intérieur</span></h1>
+		<p class="header__title">Sophie Bluel <span>Architecte d'intérieur</span></p>
 		<nav class="header__nav">
 			<ul class="header__nav--ul">
-				<a href="#portfolio"><li>projets</li></a>
-				<a href="#contact"><li>contact</li></a>
-				<a href="./pages/login.html" class="connexion"><li>login</li></a>
-				<a href="#"><li><img src="./assets/icons/instagram.png" alt="Instagram"></li></a>
+				<li><a href="#portfolio">projets</a></li>
+				<li><a href="#contact">contact</a></li>
+				<li><a href="./pages/login.html" class="connexion">login</a></li>
+				<li><a href="#"><img src="./assets/icons/instagram.png" alt="Instagram"></a></li>
 			</ul>
 		</nav>
 	</header>
@@ -33,12 +31,12 @@
 			<figure class="introduction__figure">
 				<img src="./assets/images/sophie-bluel.png" alt="">
 			</figure>
-			<article class="introduction__article">
-				<h2>Designer d'espace</h2>
+			<div class="introduction__article">
+				<h1>Designer d'espace</h1>
 				<p>Je raconte votre histoire, je valorise vos idées. Je vous accompagne de la conception à la livraison finale du chantier.</p>
 				<p>Chaque projet sera étudié en commun, de façon à mettre en valeur les volumes, les matières et les couleurs dans le respect de l’esprit des lieux et le choix adapté des matériaux. Le suivi du chantier sera assuré dans le souci du détail, le respect du planning et du budget.</p>
 				<p>En cas de besoin, une équipe pluridisciplinaire peut-être constituée : architecte DPLG, décorateur(trice)</p>
-			</article>
+			</div>
 		</section>
 		<section id="portfolio" class="portfolio">
 			<h2>Mes projets</h2>
@@ -63,43 +61,44 @@
 				<input type="submit" value="Envoyer">
 			</form>
 		</section>
+
+		<div id="modale" class="modale" aria-hidden="true" role="dialog" aria-labelledby="titlemodale1">
+			<div class="modale__wrapper-1">
+				<h3 id="titlemodale1">Galerie photo</h3>
+				<article id="works">
+					<!-- Injection js de tous les works de la page projet -->
+				</article>
+				<button id="ajoutPhotoBtn">Ajouter une photo</button>
+				<i class="fa-solid fa-xmark"></i>
+			</div>
+			<div class="modale__wrapper-2">
+				<h3 id="titlemodale2">Ajout photo</h3>
+				<form method="post" class="ajoutWorks-form" enctype="multipart/form-data">
+					<div class="ajoutPhoto">
+						<img src="./assets/icons/picture-svgrepo-com1.svg" alt="Image Svg">
+						<label for="ajoutPhotoFile"> + Ajouter photo</label>
+						<p>jpg, png : 4mo max</p>
+						<input type="file" name="image" id="ajoutPhotoFile" accept="image/*" size="4194204">
+					</div>
+					<fieldset class="ajoutWorks-form--title">
+						<legend>Titre</legend>
+						<input type="text" name="title" id="titre">
+					</fieldset>
+					<fieldset class="ajoutWorks-form--categorie">
+						<legend>Catégorie</legend>
+						<select name="category" id="worksCategory">
+							<option value="0" label=" "></option>
+							<!-- Injection js des options supplémentaires -->
+						</select>
+					</fieldset>
+					<input class="modalSubmitBtn" type="submit" value="valider">
+				</form>
+				<i class="fa-solid fa-xmark"></i>
+				<i class="fa-solid fa-arrow-left"></i>
+			</div>
+			
+		</div>
 	</main>
-	<aside id="modale" class="modale" aria-hidden="true" role="dialog" aria-labelledby="titlemodale">
-		<div class="modale__wrapper-1">
-			<h3 id="titlemodale">Galerie photo</h3>
-			<article id="works">
-				<!-- Injection js de tous les works de la page projet -->
-			</article>
-			<button id="ajoutPhotoBtn">Ajouter une photo</button>
-			<i class="fa-solid fa-xmark"></i>
-		</div>
-		<div class="modale__wrapper-2">
-			<h3 id="titlemodale">Ajout photo</h3>
-			<form method="post" class="ajoutWorks-form" enctype="multipart/form-data">
-				<div class="ajoutPhoto">
-					<img src="./assets/icons/picture-svgrepo-com1.svg" alt="Image Svg">
-					<label for="ajoutPhotoFile"> + Ajouter photo</label>
-					<p>jpg, png : 4mo max</p>
-					<input type="file" name="image" id="ajoutPhotoFile" accept="image/*" size="4194204">
-				</div>
-				<fieldset class="ajoutWorks-form--title">
-					<legend>Titre</legend>
-					<input type="text" name="title" id="titre">
-				</fieldset>
-				<fieldset class="ajoutWorks-form--categorie">
-					<legend>Catégorie</legend>
-					<select name="category" id="worksCategory">
-						<option value="0"></option>
-						<!-- Injection js des options supplémentaires -->
-					</select>
-				</fieldset>
-				<input class="modalSubmitBtn" type="submit" value="valider">
-			</form>
-			<i class="fa-solid fa-xmark"></i>
-			<i class="fa-solid fa-arrow-left"></i>
-		</div>
-		
-	</aside>
 	<footer>
 		<nav>
 			<ul>
@@ -107,5 +106,8 @@
 			</ul>
 		</nav>
 	</footer>
+
+	<script type="module" src="./assets/js/index/homepage.js"></script>
+	<script type="module" src="./assets/js/index/admin.js"></script>
 </body>
 </html>

@@ -19,7 +19,6 @@ export const afficherElementAdmin = () => {
     // Changer le texte login en logout
     const sessionConnected = document.querySelector(".connexion")
     sessionConnected.innerHTML = `<a href="#" class="connexion">logout</a>`
-    sessionConnected.style.fontSize = "1.2em"
     sessionConnected.addEventListener("click", (e) => {
       e.preventDefault()
       sessionStorage.removeItem("token")

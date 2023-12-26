@@ -198,8 +198,17 @@ footer nav ul {
     text-align: center;
   }
 }
-.introduction__article h2 {
+.introduction__article h1 {
+  font-family: "Syne";
   margin-bottom: 1em;
+  font-size: 30px;
+  font-weight: 700;
+  color: #1D6154;
+}
+@media screen and (max-width: 768px) {
+  .introduction__article h1 {
+    font-size: 24px;
+  }
 }
 .introduction__article p {
   margin-bottom: 0.5em;
@@ -639,9 +648,7 @@ footer nav ul {
   outline: none;
   padding: 0 15px;
   border-right: 15px solid transparent;
-  -webkit-appearance: none;
-     -moz-appearance: none;
-          appearance: none;
+  outline: none;
 }
 .modale__wrapper-2 input[type=submit] {
   padding: 10px 20px;
